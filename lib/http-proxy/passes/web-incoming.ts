@@ -356,7 +356,7 @@ async function stream2(
 
     // there can be multiple set-cookie headers in the same response
     // therefore set-cookie headers are stored as an array
-    const setCookies = response.headers.getSetCookie();
+    const setCookies = response.headers.getSetCookie?.() || [];
     if (setCookies.length > 0) {
       headers["set-cookie"] = setCookies;
     }
